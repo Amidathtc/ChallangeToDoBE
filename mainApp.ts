@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import cors from "cors";
-import user from '../ToDoBE/router/authRouter'
-import task from "../ToDoBE/router/taskRouter"
+import user from './router/authRouter'
+import task from "./router/taskRouter"
 
 export const mainApp = (app: Application) => {
   app

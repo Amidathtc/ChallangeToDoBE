@@ -1,5 +1,4 @@
 import express, { Application, Response, Request } from "express";
-import mongoose from "mongoose";
 import { mainApp } from "./mainApp";
 import dotenv from "dotenv";
 dotenv.config();
@@ -19,14 +18,14 @@ const server = app.listen(port, () => {
 });
 
 process.on("uncaughtException", (error: any) => {
-  console.log("server is shutting down dur to: uncaughtException ");
+  console.log("server is shutting down due to: uncaughtException ",error);
 
 
   process.exit(1);
 });
 
 process.on("unhandledRejection", (reason: any) => {
-  console.log("server is shutting down dur to: unhandledRejection ");
+  console.log("server is shutting down dur to: unhandledRejection ", reason);
 
 
 

@@ -83,7 +83,7 @@ export const createAccount = async (
   res: Response
 ): Promise<Response> => {
   try {
-    const { userName, avatar, email, password } = req.body;
+    const { userName,  email, password } = req.body;
 
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
@@ -91,8 +91,7 @@ export const createAccount = async (
     const user = await authModel.create({
       email,
       password: hash,
-      userName,
-      avatar,
+      userName
     });
 
     return res.status(201).json({

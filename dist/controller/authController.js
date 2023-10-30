@@ -75,14 +75,13 @@ const deleteOneUser = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 exports.deleteOneUser = deleteOneUser;
 const createAccount = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { userName, avatar, email, password } = req.body;
+        const { userName, email, password } = req.body;
         const salt = yield bcrypt_1.default.genSalt(10);
         const hash = yield bcrypt_1.default.hash(password, salt);
         const user = yield authModel_1.default.create({
             email,
             password: hash,
-            userName,
-            avatar,
+            userName
         });
         return res.status(201).json({
             message: "Account Created",

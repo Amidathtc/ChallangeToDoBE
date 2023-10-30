@@ -99,7 +99,9 @@ export const createAccount = async (
       data: user,
     });
   } catch (error) {
-    return res.status(404).json({ message: "error creating user"});
+    return res.status(404).json({ message: "error creating user",
+   error
+  });
   }
 };
 
